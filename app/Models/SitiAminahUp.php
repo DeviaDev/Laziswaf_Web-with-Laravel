@@ -10,6 +10,17 @@ class SitiAminahUp extends Model
     use HasFactory;
 
     protected $fillable = [
+        'waktu_masuk',
         'jumlah',
+        'laporan_id',
     ];
+
+    protected $casts = [
+        'waktu_masuk' => 'datetime',
+    ];
+
+    public function laporan()
+    {
+        return $this->belongsTo(Laporan::class);
+    }
 }

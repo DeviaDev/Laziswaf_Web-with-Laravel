@@ -23,15 +23,15 @@ class SitiAminahUpResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\DateTimePicker::make('waktu_masuk')
+                    ->label('Waktu Masuk')
+                    ->required()
+                    ->default(now()),
 
-            Forms\Components\TextInput::make('jumlah')
-                ->integer()
-                ->required(),
-
-            Forms\Components\DateTimePicker::make('created_at')
-            ->label('Waktu Masuk')
-            ->required()
-            ->default(now()),
+                Forms\Components\TextInput::make('jumlah')
+                    ->label('Jumlah')
+                    ->numeric()
+                    ->required(),
             ]);
     }
 
@@ -39,16 +39,14 @@ class SitiAminahUpResource extends Resource
     {
         return $table
             ->columns([
-
-                Tables\Columns\TextColumn::make('created_at')
+                Tables\Columns\TextColumn::make('waktu_masuk')
                     ->label('Waktu Masuk')
                     ->dateTime('d-m-Y H:i:s')
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('jumlah')
-                    ->label('Jumlah'),
-
-                
+                    ->label('Jumlah')
+                    ->numeric(),
             ])
             ->filters([
                 //
