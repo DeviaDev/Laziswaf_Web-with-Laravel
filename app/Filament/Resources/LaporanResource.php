@@ -34,26 +34,27 @@ class LaporanResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('id')
-                ->label('No')
-                ->sortable(),
+                    ->label('No')
+                    ->sortable(),
 
-            TextColumn::make('Asrama')
-                ->label('Asrama')
-                ->searchable(),
-            
-            ColumnGroup::make('BULAN', [
-    TextColumn::make('shafar')->label('Shafar'),
-    TextColumn::make('rabiul_awal')->label("Rabi'ul Awwal"),
-    TextColumn::make('rabiul_akhir')->label("Rabi'ul Akhir"),
-    TextColumn::make('jumadil_awal')->label('Jumadil Awwal'),
-    TextColumn::make('jumadil_akhir')->label('Jumadil Akhir'),
-    TextColumn::make('rajab')->label('Rajab'),
-    TextColumn::make('syaban')->label("Sya'ban"),
-    TextColumn::make('ramadhan')->label('Ramadhan'),
-    TextColumn::make('syawwal')->label('Syawwal'),
-    TextColumn::make('dzulqodah')->label("Dzulqo'dah"),
-])
-            
+                TextColumn::make('Asrama')
+                    ->label('Asrama')
+                    ->searchable(),
+                
+                ColumnGroup::make('BULAN', [
+                    TextColumn::make('januari')->label('Jan'),
+                    TextColumn::make('februari')->label('Feb'),
+                    TextColumn::make('maret')->label('Mar'),
+                    TextColumn::make('april')->label('Apr'),
+                    TextColumn::make('mei')->label('Mei'),
+                    TextColumn::make('juni')->label('Jun'),
+                    TextColumn::make('juli')->label('Jul'),
+                    TextColumn::make('agustus')->label('Agu'),
+                    TextColumn::make('september')->label('Sep'),
+                    TextColumn::make('oktober')->label('Okt'),
+                    TextColumn::make('november')->label('Nov'),
+                    TextColumn::make('desember')->label('Des'),
+                ])
             ])
             ->filters([
                 //

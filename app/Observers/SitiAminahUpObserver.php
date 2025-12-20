@@ -25,37 +25,37 @@ class SitiAminahUpObserver
 
     private function updateLaporan($data)
     {
-        // Pakai waktu_masuk, bukan created_at
         $tanggal = Carbon::parse($data->waktu_masuk);
-        $bulan = $tanggal->month;
+        $bulan = $tanggal->month; // 1=Januari, 2=Februari, dst
         $tahun = $tanggal->year;
         
+        // Mapping bulan ke nama kolom
         $kolomBulan = [
-            1 => 'shafar',
-            2 => 'rabiul_awal',
-            3 => 'rabiul_akhir',
-            4 => 'jumadil_awal',
-            5 => 'jumadil_akhir',
-            6 => 'rajab',
-            7 => 'syaban',
-            8 => 'ramadhan',
-            9 => 'syawwal',
-            10 => 'dzulqodah',
-            11 => 'dzulqodah',
-            12 => 'dzulqodah',
+            1 => 'januari',
+            2 => 'februari',
+            3 => 'maret',
+            4 => 'april',
+            5 => 'mei',
+            6 => 'juni',
+            7 => 'juli',
+            8 => 'agustus',
+            9 => 'september',
+            10 => 'oktober',
+            11 => 'november',
+            12 => 'desember',
         ];
         
         $namaKolom = $kolomBulan[$bulan];
         
-        $laporan = Laporan::firstOrCreate(
-            ['Asrama' => 'Siti Aminah']
-        );
+        // Cari atau buat laporan
+        $laporan = Laporan::firstOrCreate(['Asrama' => 'Siti Aminah']);
         
-        // Pakai waktu_masuk, bukan created_at
+        // Hitung total bulan ini
         $totalBulanIni = SitiAminahUp::whereMonth('waktu_masuk', $bulan)
             ->whereYear('waktu_masuk', $tahun)
             ->sum('jumlah');
         
+        // Update kolom bulan
         $laporan->$namaKolom = $totalBulanIni;
         $laporan->save();
     }

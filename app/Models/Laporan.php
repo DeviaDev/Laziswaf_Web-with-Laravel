@@ -11,16 +11,18 @@ class Laporan extends Model
 
     protected $fillable = [
         'Asrama',
-        'shafar',
-        'rabiul_awal',
-        'rabiul_akhir',
-        'jumadil_awal',
-        'jumadil_akhir',
-        'rajab',
-        'syaban',
-        'ramadhan',
-        'syawwal',
-        'dzulqodah',
+        'januari',
+        'februari',
+        'maret',
+        'april',
+        'mei',
+        'juni',
+        'juli',
+        'agustus',
+        'september',
+        'oktober',
+        'november',
+        'desember',
     ];
 
     public function sitiAminahUps()
