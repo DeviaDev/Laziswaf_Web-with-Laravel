@@ -14,6 +14,6 @@ class Login extends BaseLogin
 
     public function getSubheading(): string|Htmlable|null
     {
-        return 'Silakan masuk ke sistem';
+        return 'Silakan login ke sistem';
     }
 }
